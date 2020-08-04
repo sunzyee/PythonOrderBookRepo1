@@ -1,0 +1,35 @@
+from flask import Flask, jsonify, request
+from flask_cors import CORS
+from orderbook import *
+
+
+app = Flask(__name__)
+app.config['JSON_SORT_KEYS'] = False
+CORS(app)
+
+@app.route("/", methods=['GET'])
+def index():
+    return "This is an new OrderBook demo, use route /orderbooks to show orderbooks detail"
+
+@app.route('/orderbooks', methods=['GET'])
+def get_orderbooks():
+    # fetching from the server
+    order_books = OrderBooks()
+
+    # show example order book for one stock
+    orders = [
+        "1568390243|abbb11|a|AAPL|B|209.00000|100",
+        "1568390282|abbb12|a|AAPL|B|210.00000|10",
+        "1568390332|abbb13|a|AAPL|S|213.00000|50"
+    ]
+    for order in orders:
+        order_books.processOrder(order)
+
+    order_books_data = order_books.showOrderBooks()
+
+    # serializing as JSON
+    return jsonify([{'data':order_books_data}])
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

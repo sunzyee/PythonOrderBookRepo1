@@ -1,0 +1,28 @@
+h1
+{
+    text-align: center;
+    color: grey;
+}
+
+#orderbook {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #orderbook td, #orderbook th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #orderbook tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #orderbook tr:hover {background-color: #ddd;}
+  
+  #orderbook th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: grey;
+    color: white;
+  }

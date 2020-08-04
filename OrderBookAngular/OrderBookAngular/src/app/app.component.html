@@ -1,0 +1,17 @@
+<h1>OrderBooks</h1>
+<hr>
+
+<table id="orderbook">
+  <tr>
+      <th *ngFor="let column of headers">
+          {{column}}
+      </th>
+  </tr> 
+
+  <tr *ngFor="let row of orderBook">
+      <td *ngFor="let col of headers">
+          {{row[col]}}
+      </td>
+  </tr>
+
+</table>
